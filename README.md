@@ -7,6 +7,7 @@
 - PostgreSQL: https://www.postgresql.org/download/windows/
 - Apache Maven (Windows): https://dlcdn.apache.org/maven/maven-3/3.9.2/binaries/apache-maven-3.9.2-bin.zip
   - Configura as variáveis MAVEN_PATH (raiz) e PATH (/bin).
+- Postman: https://www.postman.com/
 
 
 
