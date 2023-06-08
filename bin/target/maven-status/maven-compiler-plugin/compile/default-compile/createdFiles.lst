@@ -1,0 +1,5 @@
+com\api\rest\Application.class
+com\api\rest\controller\IndexController.class
+com\api\rest\model\Usuario.class
+com\api\rest\repository\UsuarioRepository.class
+com\api\rest\ServletInitializer.class

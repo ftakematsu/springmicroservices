@@ -7,10 +7,12 @@ import org.hibernate.annotations.ForeignKey;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -20,14 +22,15 @@ public class Telefone implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	private String numero;
 	
 	@JsonIgnore
-	@ForeignKey(name = "usuario_id")
+	//@ForeignKey(name = "usuario_id")
 	@ManyToOne
-	//@JoinColumn(name="usuario_id", nullable=false, foreignKey = @ForeignKey(name="fk_telefone_user"))
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
 
 	public Long getId() {

@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,13 +21,15 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	private String login;
 	private String senha;
 	private String nome;
 	
-	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade=CascadeType.ALL)
+	//@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade=CascadeType.ALL)
+	@OneToMany(targetEntity=Telefone.class, mappedBy="usuario",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Telefone> telefones = new ArrayList<Telefone>();
 	
 	public Long getId() {
