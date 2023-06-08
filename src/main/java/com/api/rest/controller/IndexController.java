@@ -37,12 +37,13 @@ public class IndexController {
 	@CrossOrigin(origins = {"localhost:5000"}) // Libera o acesso a este endpoint, apenas de quem vier do domínio atual
 	@GetMapping(value="/test", produces="application/json")
 	public ResponseEntity<Usuario> usuario() {
-		Usuario nome = new Usuario();
-		nome.setId(1L);
-		nome.setLogin("admin");
-		nome.setNome("Administrador");
-		nome.setSenha("1234");
-		return new ResponseEntity<Usuario>(nome, HttpStatus.OK);
+		Usuario user = new Usuario();
+		user.setId(1L);
+		user.setLogin("admin");
+		user.setNome("Administrador");
+		user.setSenha("1234");
+		usuarioRepository.save(user);
+		return new ResponseEntity<Usuario>(user, HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/{id}", produces="application/json")
